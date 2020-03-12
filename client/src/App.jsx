@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 class App extends React.Component {
   constructor(props) {
@@ -7,7 +6,7 @@ class App extends React.Component {
   }
 
   render() {
-    return (<div>dlroW olleH</div>);
+    return <div>dlroW olleH</div>;
   }
 }
 
