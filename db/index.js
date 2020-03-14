@@ -25,4 +25,16 @@ const saveProp = (propInfo, callback) => {
   });
 };
 
+const findProperty = (id, callback) => {
+  Property.find({ _id: id }, (err, foundProp) => {
+    if (err) {
+      console.log('err in db find');
+      callback(err, null);
+    } else {
+      callback(null, foundProp);
+    }
+  });
+};
+
 module.exports.saveProp = saveProp;
+module.exports.findProperty = findProperty;
