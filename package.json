@@ -11,7 +11,7 @@
     "server": "nodemon ./server/index.js",
     "build-dev": "webpack -d --watch",
     "test": "jest",
-    "seed": "node "
+    "seed": "node ./db/seeder.js"
   },
   "dependencies": {
     "bluebird": "^3.7.2",
