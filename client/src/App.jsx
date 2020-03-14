@@ -20,7 +20,7 @@ class App extends React.Component {
   }
 
   render() {
-    return <div>dlroW olleH</div>;
+    return <img src="https://fec-placeholder-photos.s3-us-west-1.amazonaws.com/0" />;
   }
 }
 

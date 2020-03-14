@@ -25,6 +25,6 @@ module.exports = {
   rules: {
     "comma-dangle": ["error", "never"],
     "no-console": 0,
-    
+    "no-plusplus": 0,
   },
 };
