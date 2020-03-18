@@ -24,5 +24,5 @@ describe('App functionality', () => {
 
   // test for carousel loop? simulate enough clicks to go a full revolution
 
-  // test for favorites flag if there is time0
+  // test for favorites flag if there is time
 });

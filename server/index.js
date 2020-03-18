@@ -9,11 +9,12 @@ app.use(express.static(path.join(__dirname, '../client/dist')));
 
 // app.get('/', (req, res) => res.send('Hello World!'));
 app.get('/api/recommendations', (req, res) => {
-  db.findProperty(0, (err, foundProp) => {
+  db.findProperty((err, foundProp) => {
     if (err) {
       console.log('err in server get');
       throw err;
     } else {
+      console.log(foundProp);
       res.send(foundProp);
     }
   });

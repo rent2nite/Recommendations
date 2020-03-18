@@ -4,7 +4,7 @@ mongoose.connect('mongodb://localhost/FECplaceholder');
 
 const recommendationSchema = mongoose.Schema({
   _id: Number,
-//   location: String,
+  //   location: String,
   photos: Array
 });
 
@@ -13,9 +13,9 @@ const Property = mongoose.model('Property', recommendationSchema);
 const saveProp = (propInfo, callback) => {
   let property = new Property();
   property._id = propInfo.id;
-//   property.location = propInfo.location;
+  //   property.location = propInfo.location;
   property.photos = propInfo.photos;
-  property.save((err) => {
+  property.save(err => {
     if (err) {
       console.log('err saving into db', err);
       throw err;
@@ -25,8 +25,8 @@ const saveProp = (propInfo, callback) => {
   });
 };
 
-const findProperty = (id, callback) => {
-  Property.find({ _id: id }, (err, foundProp) => {
+const findProperty = (callback) => {
+  Property.find({}, (err, foundProp) => {
     if (err) {
       console.log('err in db find');
       callback(err, null);
