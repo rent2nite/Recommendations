@@ -26,6 +26,7 @@ module.exports = {
     "comma-dangle": ["error", "never"],
     "no-console": 0,
     "no-plusplus": 0,
-    "class-methods-use-this": 0
+    "class-methods-use-this": 0,
+    "destructuring-assignment": 0
   },
 };

@@ -8,15 +8,27 @@ const CarouselEntry = (props) => {
   // can be static data that only appears for the current listing
 
   const Entry = styled.div`
+    padding-left: 40px;
+    padding-right: 40px;
+  `;
+
+  const Favorite = styled.button`
+    float:right;
+  `;
+
+  const Info = styled.div`
+    margin: auto;
+    text-align: center;
   `;
 
   return (
-    <Entry>
+    <Entry className="slider-entry">
       <img src={props.property.photos[0]} alt="house" />
-      <div>
+      <Info>
         Address
+        <br />
         Rooms
-      </div>
+      </Info>
     </Entry>
   );
 };

@@ -10,12 +10,12 @@ const recommendationSchema = mongoose.Schema({
 
 const Property = mongoose.model('Property', recommendationSchema);
 
-const saveProp = (propInfo, callback) => {
-  let property = new Property();
+const saveProp = (propInfo) => {
+  const property = new Property();
   property._id = propInfo.id;
   //   property.location = propInfo.location;
   property.photos = propInfo.photos;
-  property.save(err => {
+  property.save((err) => {
     if (err) {
       console.log('err saving into db', err);
       throw err;

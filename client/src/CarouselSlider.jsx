@@ -10,7 +10,7 @@ import CarouselEntry from './CarouselEntry.jsx';
 // needs buttons to scroll
 
 const Slider = styled.div`
-  min-height: 400px;
+  min-height: 300px;
   max-width: 100%;
   display: flex;
   position: relative;
@@ -19,15 +19,16 @@ const Slider = styled.div`
 
 const Wrapper = styled.div`
   z-index: -1;
-  min-height: 400px;
+  min-height: inherited;
   position: absolute;
   display: flex;
   overflow-x: hidden;
-  transform: translateX(${props => props.activeProp * -500}px);
+  transform: translateX(${props => props.activeProp * -100 / props.properties.length}%);
 `;
 
 const Button = styled.button`
-  height: 100%;
+  opacity: 0.4;
+  height: 240px;
   position: absolute;
   z-index: 2;
 `;
@@ -63,16 +64,16 @@ class CarouselSlider extends React.Component {
     });
   }
 
-  nextEntry(e) {
-    e.preventDefault();
+  nextEntry() {
+    // e.preventDefault();
     const newProp = this.state.activeProp + 1;
     this.setState({
       activeProp: newProp
     });
   }
 
-  prevEntry(e) {
-    e.preventDefault();
+  prevEntry() {
+    // e.preventDefault();
     const newProp = this.state.activeProp - 1;
     this.setState({
       activeProp: newProp
@@ -83,13 +84,13 @@ class CarouselSlider extends React.Component {
     return (
       <div>
         <Slider>
-          <Button onClick={this.prevEntry}>Prev</Button>
-          <Wrapper activeProp={this.state.activeProp}>
+          <Button className="prvBtn" onClick={this.prevEntry} disabled={this.state.activeProp === 0}>Prev</Button>
+          <Wrapper activeProp={this.state.activeProp} properties={this.state.properties}>
             {this.state.properties.map(property => (
               <CarouselEntry property={property} key={property._id} />
             ))}
           </Wrapper>
-          <NextButton onClick={this.nextEntry}>Next</NextButton>
+          <NextButton className="nxtBtn" onClick={this.nextEntry} disabled={this.state.activeProp === this.state.properties.length - 3}>Next</NextButton>
         </Slider>
       </div>
     );
