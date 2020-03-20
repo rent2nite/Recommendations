@@ -5,12 +5,12 @@ const Entry = styled.div`
   min-width: 400px;
 `;
 
-// const Img = styled.div`
-//   display: flex;
-//   justify-content: center;
-//   margin-left: auto;
-//   margin-right: auto;
-// `;
+const Img = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+`;
 
 // const Favorite = styled.button`
 //   float: right;
@@ -45,9 +45,9 @@ class CarouselEntry extends React.Component {
   render() {
     return (
       <Entry className="slider-entry">
-        {/* <Img> */}
+        <Img>
           <img src={this.state.photos[this.state.counter]} alt="house" />
-        {/* </Img> */}
+        </Img>
         <Info>
           Address
           <br />

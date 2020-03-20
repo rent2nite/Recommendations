@@ -13,7 +13,7 @@ import CarouselEntry from './CarouselEntry.jsx';
 
 const Slider = styled.div`
   min-height: 300px;
-  max-width: 1300px;
+  max-width: 1200px;
   margin: auto;
   display: flex;
   position: relative;
@@ -22,6 +22,8 @@ const Slider = styled.div`
 
 const Wrapper = styled.div`
   z-index: -1;
+  margin-left: auto;
+  maring-right: auto;
   min-height: inherited;
   position: absolute;
   display: flex;
