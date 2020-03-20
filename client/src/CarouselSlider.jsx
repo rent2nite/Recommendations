@@ -2,7 +2,7 @@ import React from 'react';
 import $ from 'jquery';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleDoubleLeft, faAngleDoubleRight } from "@fortawesome/free-solid-svg-icons";
+import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import CarouselEntry from './CarouselEntry.jsx';
 
 // should be a class
@@ -42,6 +42,8 @@ const Button = styled.button`
   border: none;
   outline: none;
   transition: 0.5s;
+  margin: 0;
+  padding: 0;
 
   &:hover {
     background: black;
@@ -55,7 +57,7 @@ const PrevButton = styled(Button)`
 `;
 
 const NextButton = styled(Button)`
-  right: 0  ;
+  right: 0;
 `;
 
 class CarouselSlider extends React.Component {
@@ -105,13 +107,13 @@ class CarouselSlider extends React.Component {
     return (
       <div>
         <Slider>
-          <PrevButton className="prvBtn" onClick={this.prevEntry} disabled={this.state.activeProp === 0}><FontAwesomeIcon icon={faAngleDoubleLeft} size="4x" /></PrevButton>
+          <PrevButton className="prvBtn" onClick={this.prevEntry} disabled={this.state.activeProp === 0}><FontAwesomeIcon icon={faAngleLeft} size="4x" /></PrevButton>
           <Wrapper activeProp={this.state.activeProp} properties={this.state.properties}>
             {this.state.properties.map(property => (
               <CarouselEntry property={property} key={property._id} />
             ))}
           </Wrapper>
-          <NextButton className="nxtBtn" onClick={this.nextEntry} disabled={this.state.activeProp === this.state.properties.length - 3}><FontAwesomeIcon icon={faAngleDoubleRight} size="4x" /></NextButton>
+          <NextButton className="nxtBtn" onClick={this.nextEntry} disabled={this.state.activeProp === this.state.properties.length - 3}><FontAwesomeIcon icon={faAngleRight} size="4x" /></NextButton>
         </Slider>
       </div>
     );

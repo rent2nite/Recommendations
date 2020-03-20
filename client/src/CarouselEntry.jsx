@@ -10,6 +10,7 @@ const Img = styled.div`
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
+  transform: 
 `;
 
 // const Favorite = styled.button`
