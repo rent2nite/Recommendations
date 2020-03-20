@@ -1,36 +1,61 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const CarouselEntry = (props) => {
-  // will render each entry passed down from props
-  // might contain an additional module? slider inside
-  // quick read info about each listing under the images
-  // can be static data that only appears for the current listing
+const Entry = styled.div`
+  min-width: 400px;
+`;
 
-  const Entry = styled.div`
-    padding-left: 40px;
-    padding-right: 40px;
-  `;
+// const Img = styled.div`
+//   display: flex;
+//   justify-content: center;
+//   margin-left: auto;
+//   margin-right: auto;
+// `;
 
-  const Favorite = styled.button`
-    float:right;
-  `;
+// const Favorite = styled.button`
+//   float: right;
+// `;
 
-  const Info = styled.div`
-    margin: auto;
-    text-align: center;
-  `;
+const Info = styled.div`
+  margin: auto;
+  text-align: center;
+`;
 
-  return (
-    <Entry className="slider-entry">
-      <img src={props.property.photos[0]} alt="house" />
-      <Info>
-        Address
-        <br />
-        Rooms
-      </Info>
-    </Entry>
-  );
-};
+class CarouselEntry extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      photos: props.property.photos,
+      counter: 0
+    };
+    this.counterIncrement = this.counterIncrement.bind(this);
+  }
+
+  componentDidMount() {
+    setInterval(this.counterIncrement, 2000);
+  }
+
+  counterIncrement() {
+    const newCounter = (this.state.counter + 1) % this.state.photos.length;
+    this.setState({
+      counter: newCounter
+    });
+  }
+
+  render() {
+    return (
+      <Entry className="slider-entry">
+        {/* <Img> */}
+          <img src={this.state.photos[this.state.counter]} alt="house" />
+        {/* </Img> */}
+        <Info>
+          Address
+          <br />
+          Rooms
+        </Info>
+      </Entry>
+    );
+  }
+}
 
 export default CarouselEntry;
