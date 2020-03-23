@@ -15,4 +15,14 @@ describe('App functionality', () => {
   test('App should exist', () => {
     expect(wrapper).toExist();
   });
+
+  // test for state?
+
+  // test for child components
+
+  // test for button functionality
+
+  // test for carousel loop? simulate enough clicks to go a full revolution
+
+  // test for favorites flag if there is time
 });
