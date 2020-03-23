@@ -106,6 +106,7 @@ class CarouselSlider extends React.Component {
   render() {
     return (
       <div>
+
         <Slider>
           <PrevButton className="prvBtn" onClick={this.prevEntry} disabled={this.state.activeProp === 0}><FontAwesomeIcon icon={faAngleLeft} size="4x" /></PrevButton>
           <Wrapper activeProp={this.state.activeProp} properties={this.state.properties}>

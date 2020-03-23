@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import EntrySlider from './EntrySlider.jsx'
 
 const Entry = styled.div`
   min-width: 400px;
@@ -10,7 +11,7 @@ const Img = styled.div`
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
-  transform: 
+  transition: ;
 `;
 
 // const Favorite = styled.button`
