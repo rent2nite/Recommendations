@@ -2,7 +2,7 @@ import React from 'react';
 import $ from 'jquery';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import CarouselEntry from './CarouselEntry.jsx';
 
 // should be a class
@@ -10,6 +10,14 @@ import CarouselEntry from './CarouselEntry.jsx';
 // will accept the list of properties from app
 // map through to create individual listings
 // needs buttons to scroll
+
+const Border = styled.div`
+  box-sizing: border-box;
+  border: 1px double rgb(0, 166, 153);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin: 15px;
+`;
 
 const Slider = styled.div`
   min-height: 300px;
@@ -29,7 +37,15 @@ const Wrapper = styled.div`
   display: flex;
   overflow-x: hidden;
   transition: transform 300ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
-  transform: translateX(${props => props.activeProp * -100 / props.properties.length}%);
+  transform: translateX(
+    ${props => (props.activeProp * -100) / props.properties.length}%
+  );
+`;
+
+const Heading = styled(Slider)`
+    font-size: 25px;
+    left: 50px;
+    min-height: 0;
 `;
 
 const Button = styled.button`
@@ -47,9 +63,8 @@ const Button = styled.button`
 
   &:hover {
     background: black;
-    color: whitesmoke; 
-  } 
-
+    color: whitesmoke;
+  }
 `;
 
 const PrevButton = styled(Button)`
@@ -106,16 +121,38 @@ class CarouselSlider extends React.Component {
   render() {
     return (
       <div>
+        <Border>
+          <Heading>
+          <p>Not the right fit? Check these out!</p>
 
-        <Slider>
-          <PrevButton className="prvBtn" onClick={this.prevEntry} disabled={this.state.activeProp === 0}><FontAwesomeIcon icon={faAngleLeft} size="4x" /></PrevButton>
-          <Wrapper activeProp={this.state.activeProp} properties={this.state.properties}>
-            {this.state.properties.map(property => (
-              <CarouselEntry property={property} key={property._id} />
-            ))}
-          </Wrapper>
-          <NextButton className="nxtBtn" onClick={this.nextEntry} disabled={this.state.activeProp === this.state.properties.length - 3}><FontAwesomeIcon icon={faAngleRight} size="4x" /></NextButton>
-        </Slider>
+          </Heading>
+          <Slider>
+            <PrevButton
+              className="prvBtn"
+              onClick={this.prevEntry}
+              disabled={this.state.activeProp === 0}
+            >
+              <FontAwesomeIcon icon={faAngleLeft} size="4x" />
+            </PrevButton>
+            <Wrapper
+              activeProp={this.state.activeProp}
+              properties={this.state.properties}
+            >
+              {this.state.properties.map(property => (
+                <CarouselEntry property={property} key={property._id} />
+              ))}
+            </Wrapper>
+            <NextButton
+              className="nxtBtn"
+              onClick={this.nextEntry}
+              disabled={
+                this.state.activeProp === this.state.properties.length - 3
+              }
+            >
+              <FontAwesomeIcon icon={faAngleRight} size="4x" />
+            </NextButton>
+          </Slider>
+        </Border>
       </div>
     );
   }
